@@ -214,7 +214,7 @@ diff felt small cost a follow-up commit to repair — the findings do not go awa
 because you committed, they just arrive with a worse changelog.
 
 **Never skip the first round.** This is the stage that earns its cost. On one
-real session it caught a write that crossed a household boundary, a duplicate row
+real session it caught a write that crossed a tenant boundary, a duplicate row
 that was already happening inside a test believed to be green, and a factual
 claim that was one commit away from becoming a permanent decision. None of those
 were findable by re-reading your own work.

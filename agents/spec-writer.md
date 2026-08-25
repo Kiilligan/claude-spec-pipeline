@@ -61,8 +61,9 @@ number.
 
 - **Behaviour, not implementation.** No class names, no method signatures. If
   you find yourself designing, you have gone too far.
-- **Concrete scenarios.** "Given a dancer with three absences on one day" beats
-  "given some absences". The test-writer needs values, not categories.
+- **Concrete scenarios.** "Given an account with three failed sign-ins in one
+  minute" beats "given some failed attempts". Whoever writes the test needs
+  values, not categories.
 - **A scenario a test cannot express is not finished.** If you cannot see how it
   would be checked, rewrite it until you can.
 - **Never invent a requirement to fill a gap.** Put it in Open questions. The

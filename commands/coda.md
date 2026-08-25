@@ -45,9 +45,9 @@ Include, honestly:
 
 ## 3 — One concrete next action each
 
-**Not a topic. An action.** *"Look at absences"* is useless in a week.
-*"Re-run `node audit.mjs out` with the API on :5197 and check the calendar filter
-panel at 390px"* is something you can start without re-reading anything.
+**Not a topic. An action.** *"Look at the filter panel"* is useless in a week.
+*"Re-run `node audit.mjs out` with the API on :5197 and check the filter panel at
+390px"* is something you can start without re-reading anything.
 
 If a thread's next action is unclear, that is itself the finding — say the thread
 needs a decision before it needs work.

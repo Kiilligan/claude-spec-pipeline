@@ -55,8 +55,8 @@ three in code mode.
 
 **Every objection names something specific.** A file and line, a scenario with
 concrete inputs, a named constraint it violates. "This might not scale" is not
-an objection; "this loads all 735 dancers to count them, and the count is on the
-dashboard" is.
+an objection; "this loads every row in the table to count them, and the count is
+on the dashboard" is.
 
 **Severity before prose.** If you cannot decide whether something is `critical`,
 `high`, `medium` or `low`, you do not understand it well enough to raise it yet.
