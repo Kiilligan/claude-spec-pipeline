@@ -37,7 +37,7 @@ prevent.
 | `spec-writer` | Plain English → spec with acceptance scenarios and open questions | Writes only to spec files |
 | `devils-advocate` | Strongest honest objections to a spec or a diff | Cold context is the point — give it the path, never a summary |
 | `cartographer` | Reconstructs the decisions a change makes, **especially the silent ones** | Read-only; returns entries for your decision log |
-| `test-writer` | Scenarios → tests, confirmed **red for the right reason** first | Surfaces tests that pass immediately — the behaviour may already exist |
+| `test-writer` | Scenarios → tests, confirmed **red for the right reason** first | **The exception, not the default** — writing them inline is usually cheaper. See below |
 | `auditor` | Reviews a diff cold before commit; runs the tests and linter | Reads and runs, never edits |
 
 ## Read this before you use it on everything
@@ -50,6 +50,20 @@ throughput, entirely on how often you commit.
 
 What costs time:
 
+- **Dispatching an agent to write the tests.** The biggest single one, and
+  counter-intuitive enough that `/spec` stage 6 now defaults to writing them
+  inline. Once a spec exists, turning scenarios into tests is transcription —
+  the judgement was spent upstream — and a cold agent has to rediscover the
+  spec, the code and the decisions before it writes a line. **Measured: five
+  dispatches, 358 tool calls, ~70 minutes, on the faster model.** Duration
+  tracked call count almost exactly. Dispatch it only when the surface is
+  genuinely multi-layer *and* large enough that holding it is itself the
+  problem.
+- **Patch scripts that do not apply.** The largest avoidable cost measured over
+  one long feature: a dozen failed on a drifted string anchor, each costing a
+  read, a rewrite and a re-run. Use the edit tool for anything containing an
+  apostrophe, a backtick or a non-ASCII character, and stop scripting after the
+  second failure.
 - **Not committing at each green point.** Work that is done and passing sits
   uncommitted while something else is built on top of it. Commit when green.
 - **Auditing more than twice.** Past round two the returns collapse to stale
